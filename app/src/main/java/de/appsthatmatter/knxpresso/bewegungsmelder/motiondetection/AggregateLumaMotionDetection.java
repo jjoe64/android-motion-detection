@@ -13,7 +13,7 @@ public class AggregateLumaMotionDetection implements IMotionDetection {
     // private static final String TAG = "AggregateLumaMotionDetection";
 
     // Specific settings
-    private static final int mLeniency = 20; // Difference of aggregate map of
+    private int mLeniency = 20; // Difference of aggregate map of
                                              // luma values
     private static final int mDebugMode = 2; // State based debug
     private static final int mXBoxes = 10; // State based debug
@@ -32,7 +32,7 @@ public class AggregateLumaMotionDetection implements IMotionDetection {
         return ((mPrevious != null) ? mPrevious.clone() : null);
     }
 
-    protected static boolean isDifferent(int[] first, int width, int height) {
+    protected boolean isDifferent(int[] first, int width, int height) {
         if (first == null) throw new NullPointerException();
 
         if (mPrevious == null) return false;
@@ -49,12 +49,6 @@ public class AggregateLumaMotionDetection implements IMotionDetection {
 
         boolean different = comparer.isDifferent();
         // String output = "isDifferent="+different;
-        if (different) {
-            // Log.e(TAG, output);
-            comparer.paintDifferences(first);
-            // } else {
-            // Log.d(TAG, output);
-        }
 
         mPreviousState = state;
 
@@ -90,5 +84,9 @@ public class AggregateLumaMotionDetection implements IMotionDetection {
         mPreviousHeight = height;
 
         return motionDetected;
+    }
+
+    public void setLeniency(int l) {
+        mLeniency = l;
     }
 }

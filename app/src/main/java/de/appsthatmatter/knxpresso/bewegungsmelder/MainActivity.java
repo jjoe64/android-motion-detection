@@ -36,9 +36,20 @@ public class MainActivity extends AppCompatActivity {
             public void onMotionDetected() {
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(80);
+                txtStatus.setText("Bewegung erkannt");
+            }
+
+            @Override
+            public void onTooDark() {
+                txtStatus.setText("Zu dunkel hier");
             }
         });
         motionDetector.start();
+
+        ////// Config Options
+        //motionDetector.setCheckInterval(500);
+        //motionDetector.setLeniency(20);
+        //motionDetector.setMinLuma(1000);
     }
 
     @Override

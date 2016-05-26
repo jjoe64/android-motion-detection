@@ -20,6 +20,7 @@ public class MotionDetector extends Thread {
     private AtomicReference<byte[]> nextData = new AtomicReference<>();
     private AtomicInteger nextWidth = new AtomicInteger();
     private AtomicInteger nextHeight = new AtomicInteger();
+    private int minLuma = 1000;
 
     public MotionDetector() {
         detector = new AggregateLumaMotionDetection();
@@ -33,9 +34,24 @@ public class MotionDetector extends Thread {
                 lastCheck = now;
 
                 if (nextData.get() != null) {
-                    // check
                     int[] img = ImageProcessing.decodeYUV420SPtoLuma(nextData.get(), nextWidth.get(), nextHeight.get());
-                    if (detector.detect(img, nextWidth.get(), nextHeight.get())) {
+
+                    // check if it is too dark
+                    int lumaSum = 0;
+                    for (int i : img) {
+                        lumaSum += i;
+                    }
+                    if (lumaSum < minLuma) {
+                        if (motionDetectorCallback != null) {
+                            mHandler.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    motionDetectorCallback.onTooDark();
+                                }
+                            });
+                        }
+                    } else if (detector.detect(img, nextWidth.get(), nextHeight.get())) {
+                        // check
                         if (motionDetectorCallback != null) {
                             mHandler.post(new Runnable() {
                                 @Override
@@ -67,5 +83,17 @@ public class MotionDetector extends Thread {
         nextData.set(data);
         nextWidth.set(width);
         nextHeight.set(height);
+    }
+
+    public void setCheckInterval(long checkInterval) {
+        this.checkInterval = checkInterval;
+    }
+
+    public void setMinLuma(int minLuma) {
+        this.minLuma = minLuma;
+    }
+
+    public void setLeniency(int l) {
+        detector.setLeniency(l);
     }
 }
