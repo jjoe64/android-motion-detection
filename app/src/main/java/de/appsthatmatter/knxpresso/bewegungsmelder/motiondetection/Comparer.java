@@ -3,14 +3,6 @@ package de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection;
 import android.graphics.Color;
 
 
-/**
- * This class is adapted from the web site below. It is used to compare two
- * State objects.
- * http://mindmeat.blogspot.com/2008/11/java-image-comparison.html
- * 
- * @author Pat Cullen
- * @author Justin Wetherell <phishman3579@gmail.com>
- */
 public class Comparer {
 
     private State state1 = null;

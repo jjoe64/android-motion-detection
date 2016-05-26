@@ -15,9 +15,6 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import de.appsthatmatter.knxpresso.bewegungsmelder.R;
 
-/**
- * Created by jonas on 26.05.16.
- */
 public class MotionDetector {
     class MotionDetectorThread extends Thread {
         private AtomicBoolean isRunning = new AtomicBoolean(true);

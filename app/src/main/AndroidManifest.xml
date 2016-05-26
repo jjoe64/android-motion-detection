@@ -5,8 +5,6 @@
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="23"/>
 
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 

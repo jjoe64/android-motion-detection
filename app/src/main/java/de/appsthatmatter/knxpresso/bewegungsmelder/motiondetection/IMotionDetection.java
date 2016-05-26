@@ -1,10 +1,5 @@
 package de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection;
 
-/**
- * This interface is used to represent a class that can detect motion
- * 
- * @author Justin Wetherell <phishman3579@gmail.com>
- */
 public interface IMotionDetection {
 
     /**
