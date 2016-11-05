@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "de.appsthatmatter.knxpresso.bewegungsmelder"
+        applicationId "com.jjoe64.motiondetection"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1

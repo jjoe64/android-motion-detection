@@ -1,4 +1,4 @@
-package de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection;
+package com.jjoe64.motiondetection.motiondetection;
 
 public class State {
 

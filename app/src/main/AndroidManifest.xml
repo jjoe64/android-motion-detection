@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="de.appsthatmatter.knxpresso.bewegungsmelder">
+    package="com.jjoe64.motiondetection">
 
     <uses-sdk android:minSdkVersion="7" android:targetSdkVersion="23"/>
 
     <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
 

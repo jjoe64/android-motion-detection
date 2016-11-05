@@ -1,4 +1,4 @@
-package de.appsthatmatter.knxpresso.bewegungsmelder;
+package com.jjoe64.motiondetection;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -11,9 +11,8 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
 
-import de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection.AggregateLumaMotionDetection;
-import de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection.MotionDetector;
-import de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection.MotionDetectorCallback;
+import com.jjoe64.motiondetection.motiondetection.MotionDetector;
+import com.jjoe64.motiondetection.motiondetection.MotionDetectorCallback;
 
 public class MainActivity extends AppCompatActivity {
     private TextView txtStatus;
@@ -33,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
             public void onMotionDetected() {
                 Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
                 v.vibrate(80);
-                txtStatus.setText("Bewegung erkannt");
+                txtStatus.setText("Motion detected");
             }
 
             @Override
             public void onTooDark() {
-                txtStatus.setText("Zu dunkel hier");
+                txtStatus.setText("Too dark here");
             }
         });
 
@@ -54,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         motionDetector.onResume();
 
         if (motionDetector.checkCameraHardware()) {
-            txtStatus.setText("Kamera gefunden");
+            txtStatus.setText("Camera found");
         } else {
-            txtStatus.setText("Keine Kamera verfuegbar");
+            txtStatus.setText("No camera available");
         }
     }
 

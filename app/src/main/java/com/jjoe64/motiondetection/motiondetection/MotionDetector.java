@@ -1,4 +1,4 @@
-package de.appsthatmatter.knxpresso.bewegungsmelder.motiondetection;
+package com.jjoe64.motiondetection.motiondetection;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -12,8 +12,6 @@ import android.view.SurfaceView;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-
-import de.appsthatmatter.knxpresso.bewegungsmelder.R;
 
 public class MotionDetector {
     class MotionDetectorThread extends Thread {
@@ -141,8 +139,14 @@ public class MotionDetector {
 
     private Camera getCameraInstance(){
         Camera c = null;
+
         try {
-            c = Camera.open(); // attempt to get a Camera instance
+            if (Camera.getNumberOfCameras() >= 2) {
+                //if you want to open front facing camera use this line
+                c = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+            } else {
+                c = Camera.open();
+            }
         }
         catch (Exception e){
             // Camera is not available (in use or does not exist)
