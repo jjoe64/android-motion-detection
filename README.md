@@ -38,6 +38,7 @@ motionDetector.setMotionDetectorCallback(new MotionDetectorCallback() {
 ## customize parameters
 
 there are some important parameters that can be adjusted at runtime.
+
 | Method | Description | Default |
 | --- | --- | --- |
 | motionDetector.setCheckInterval(500); | milliseconds between pictures to compare. less = less energy cos t | 500 |
