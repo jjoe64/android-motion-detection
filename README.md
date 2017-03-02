@@ -56,3 +56,7 @@ there are some important parameters that can be adjusted at runtime.
 3. the detection is only running while the activity is active. It may make sense to build in a Wake-Lock.
 4. Parts of the code is taken from https://github.com/phishman3579/android-motion-detection
 
+## license
+
+Jonas Gehring
+Apache license 2.0
