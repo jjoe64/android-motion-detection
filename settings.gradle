@@ -1,1 +1,3 @@
+rootProject.name = "android-motion-detection"
 include ':app'
+include ':motion-detection'
