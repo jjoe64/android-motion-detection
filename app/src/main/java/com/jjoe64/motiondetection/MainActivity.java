@@ -1,18 +1,15 @@
 package com.jjoe64.motiondetection;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.hardware.Camera;
-import android.os.Vibrator;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.SurfaceHolder;
+import android.os.Vibrator;
 import android.view.SurfaceView;
 import android.widget.TextView;
 
 import com.jjoe64.motiondetection.motiondetection.MotionDetector;
 import com.jjoe64.motiondetection.motiondetection.MotionDetectorCallback;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private TextView txtStatus;
