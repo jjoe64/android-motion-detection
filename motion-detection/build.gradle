@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
@@ -6,7 +6,6 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.jjoe64.motiondetection"
         minSdkVersion 15
         targetSdkVersion 30
         versionCode 1
@@ -22,7 +21,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':motion-detection')
     testImplementation 'junit:junit:4.12'
     implementation "androidx.appcompat:appcompat:$appcompat_version"
 }
